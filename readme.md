@@ -1,6 +1,6 @@
 **Graph-0.**
 Web service takes text input in the format shown and returns a JSON tree structure.
-"Home"is first vertex in list by default.  "id" is zero-based.
+"Home" is first vertex in list by default.  "id" is zero-based.
 
 **Example:**
 This:
