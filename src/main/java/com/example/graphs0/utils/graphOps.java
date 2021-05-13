@@ -67,7 +67,9 @@ public class graphOps {
             log.info("i: "+i);
             int row = (int)getKeyFromValue(nodes,theEdges[i].getStart());
             int col = (int)getKeyFromValue(nodes,theEdges[i].getEnd());
-            log.info("\n"+"Back in adjMatrix @ row " + i);
+
+            log.info("\n");
+            log.info("Back in adjMatrix @ row " + i);
 
             theMatrix.setMatrix(row,col,1);
         }
