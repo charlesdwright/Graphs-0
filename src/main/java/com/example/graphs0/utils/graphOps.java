@@ -1,20 +1,18 @@
-package com.example.graphs0.models;
+package com.example.graphs0.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.graphs0.models.Edges;
+import com.example.graphs0.models.Graph;
+import com.example.graphs0.models.Matrix;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 
-import static com.example.graphs0.utils.getKeyFromValue;
-import static com.example.graphs0.utils.parseNodes;
+import static com.example.graphs0.utils.utils.getKeyFromValue;
+import static com.example.graphs0.utils.utils.parseNodes;
 
 @Slf4j
 public class graphOps {
@@ -54,26 +52,25 @@ public class graphOps {
 
     public Matrix adjMatrix(Graph theGraph){
         log.info("in graphOps.adjMatrix..." + theGraph.getHome());
-        //extract edges from theGraph
 
-        Matrix theMatrix=new Matrix();
+        //extract edges from theGraph
         Edges[] theEdges=theGraph.getEdges();
         HashMap<Integer, String> nodes = parseNodes(theEdges);
+
+        //initialize the matrix
+        Matrix theMatrix=new Matrix(nodes.size(), nodes.size());
         theMatrix.setCols(nodes.values().toArray(new String[0]));
         theMatrix.setRows(nodes.values().toArray(new String[0]));
 
-        int a[][] = new int[nodes.size()][nodes.size()];
-
+        //mapping vertices to matrix entries
         for (int i = 0; i < theEdges.length; i++) {
             log.info("i: "+i);
             int row = (int)getKeyFromValue(nodes,theEdges[i].getStart());
             int col = (int)getKeyFromValue(nodes,theEdges[i].getEnd());
             log.info("\n"+"Back in adjMatrix @ row " + i);
 
-            a[row][col]=1;
+            theMatrix.setMatrix(row,col,1);
         }
-
-        theMatrix.setMatrix(a);
         return theMatrix;
     }
 

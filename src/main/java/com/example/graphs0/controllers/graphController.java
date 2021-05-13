@@ -1,21 +1,13 @@
 package com.example.graphs0.controllers;
 import com.example.graphs0.models.Matrix;
-import com.example.graphs0.utils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.example.graphs0.models.Graph;
-import com.example.graphs0.models.graphOps;
+import com.example.graphs0.utils.graphOps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.util.UrlPathHelper;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 
 @Slf4j
 @RestController

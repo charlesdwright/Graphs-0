@@ -1,4 +1,4 @@
-package com.example.graphs0;
+package com.example.graphs0.utils;
 
 import com.example.graphs0.models.Edges;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +22,8 @@ public class utils{
         int key = nodes.size();
         log.info("...in utils.parseNodes");
         for (int i = 0; i < edges.length; i++) {
-            start[i] = edges[i].getStart(); //split(",")[0].trim();
-            end[i] = edges[i].getEnd(); //(",")[1].trim();
+            start[i] = edges[i].getStart();
+            end[i] = edges[i].getEnd();
 
             log.info(start[i] + ", " + end[i]);
 

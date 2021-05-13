@@ -9,8 +9,16 @@ public class Matrix {
     private String[] cols;
     private int[][] matrix;
 
+    public Matrix(int rows, int cols) {
+        this.matrix= new int [rows][cols];
+    }
+
     public int[][] getMatrix() { return matrix; }
-    public void setMatrix(int[][] matrix) { this.matrix = matrix; }
+    public void setMatrix(int row, int col, int value) {
+
+        this.matrix[row][col] = value;
+        log.info("in setMatrix: " + row+", "+ col + ", "+ value);
+    }
 
     public String[] getRows() { return rows; }
     public void setRows(String[] rows) { this.rows = rows; }
